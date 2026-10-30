@@ -1,0 +1,9 @@
+-- P0 改造：为所有表加逻辑删除字段 deleted
+-- 升级前在 MySQL 里执行一次
+
+ALTER TABLE users ADD COLUMN deleted TINYINT DEFAULT 0;
+ALTER TABLE classes ADD COLUMN deleted TINYINT DEFAULT 0;
+ALTER TABLE students ADD COLUMN deleted TINYINT DEFAULT 0;
+ALTER TABLE dismissal_records ADD COLUMN deleted TINYINT DEFAULT 0;
+ALTER TABLE notices ADD COLUMN deleted TINYINT DEFAULT 0;
+ALTER TABLE detention_records ADD COLUMN deleted TINYINT DEFAULT 0;

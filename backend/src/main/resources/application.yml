@@ -1,0 +1,51 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: school-dismissal-backend
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/school_dismissal?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+jwt:
+  secret: school-dismissal-system-secret-key-2026
+  expire-hours: 24
+
+upload:
+  dir: ./uploads
+  url-prefix: /uploads
+
+# 对外可访问的基础 URL（拼到上传文件的完整地址前面）
+# 本地开发用 http://localhost:3000
+# 服务器部署改成实际地址，如 http://115.29.160.166:3000 或绑定的域名
+app:
+    public-base-url:
+
+
+logging:
+  level:
+    com.school.dismissal: info
